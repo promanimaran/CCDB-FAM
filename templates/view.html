@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="card shadow p-4">
+    <h2>Faculty Directory</h2>
+    <table class="table table-striped mt-3">
+        <thead class="table-dark">
+            <tr><th>ID</th><th>Name</th><th>Qualification</th><th>Dept</th></tr>
+        </thead>
+        <tbody>
+            {% for s in staff %}
+            <tr><td>{{ s.STAFF_ID }}</td><td>{{ s.NAME }}</td><td>{{ s.QUALIFICATION }}</td><td>{{ s.DEPT_NAME }}</td></tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

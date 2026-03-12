@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="card shadow-sm border-0 p-4">
+    <h3 class="text-primary mb-4"><i class="fas fa-edit"></i> Edit Student Record</h3>
+    <form method="POST">
+        <div class="mb-3">
+            <label class="form-label fw-bold">Full Name</label>
+            <input type="text" name="name" class="form-control" value="{{ student.STU_NAME }}" required>
+        </div>
+        <div class="row">
+            <div class="col-md-6 mb-3">
+                <label class="form-label fw-bold">Gender</label>
+                <select name="gender" class="form-select">
+                    <option value="Male" {% if student.STU_GENDER == 'Male' %}selected{% endif %}>Male</option>
+                    <option value="Female" {% if student.STU_GENDER == 'Female' %}selected{% endif %}>Female</option>
+                </select>
+            </div>
+            <div class="col-md-6 mb-3">
+                <label class="form-label fw-bold">DOB</label>
+                <input type="date" name="dob" class="form-control" value="{{ student.STU_DOB }}">
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary w-100 fw-bold mt-3">Save Changes</button>
+    </form>
+</div>
+{% endblock %}

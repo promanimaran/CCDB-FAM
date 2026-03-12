@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="glass-card mt-5 mx-auto" style="max-width: 600px;">
+    <h2 class="text-center mb-4"><i class="fas fa-user-plus"></i> Enroll Student</h2>
+    
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        {% for message in messages %}
+          <div class="alert alert-warning bg-danger text-white border-0">{{ message }}</div>
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
+
+    <form method="POST">
+        <div class="mb-3">
+            <label class="form-label">Student ID (Unique Number)</label>
+            <input type="number" name="sid" class="form-control bg-transparent text-white border-light" required>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Full Name</label>
+            <input type="text" name="sname" class="form-control bg-transparent text-white border-light" required>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Department Selection</label>
+            <select name="did" class="form-select bg-dark text-white border-light">
+                {% for d in departments %}
+                <option value="{{ d.DEPT_ID }}">{{ d.DEPT_NAME }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <button type="submit" class="btn btn-custom w-100 py-2">Add to Centralized Database</button>
+    </form>
+</div>
+{% endblock %}
